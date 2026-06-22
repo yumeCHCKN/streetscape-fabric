@@ -1,8 +1,12 @@
 {
-  "parent": "minecraft:block/orientable",
+  "parent": "minecraft:block/cube",
   "textures": {
-    "top": "streetscape:block/roadworks_table_top",
-    "front": "streetscape:block/roadworks_table_front",
-    "side": "streetscape:block/roadworks_table_side"
+    "up": "streetscape:block/roadworks_table_top",
+    "down": "streetscape:block/roadworks_table_bottom",
+    "north": "streetscape:block/roadworks_table_front",
+    "south": "streetscape:block/roadworks_table_front",
+    "west": "streetscape:block/roadworks_table_side",
+    "east": "streetscape:block/roadworks_table_side",
+    "particle": "#north"
   }
 }
