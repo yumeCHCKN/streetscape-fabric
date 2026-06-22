@@ -38,3 +38,17 @@ hs_err_*.log
 replay_*.log
 *.hprof
 *.jfr
+
+# Secrets & Publishing
+local.properties
+.env
+*.keystore
+*.jks
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Fabric Loom / Gradle Caches
+.loom/
+.cache/
