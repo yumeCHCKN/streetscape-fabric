@@ -1,8 +1,36 @@
 {
-  "variants": {
-    "facing=north": { "model": "streetscape:block/yellow_arrow_marking" },
-    "facing=east": { "model": "streetscape:block/yellow_arrow_marking", "y": 90 },
-    "facing=south": { "model": "streetscape:block/yellow_arrow_marking", "y": 180 },
-    "facing=west": { "model": "streetscape:block/yellow_arrow_marking", "y": 270 }
-  }
+  "multipart": [
+    {
+      "when": { "facing": "north" },
+      "apply": { "model": "streetscape:block/yellow_arrow_marking" }
+    },
+    {
+      "when": { "facing": "east" },
+      "apply": { "model": "streetscape:block/yellow_arrow_marking", "y": 90 }
+    },
+    {
+      "when": { "facing": "south" },
+      "apply": { "model": "streetscape:block/yellow_arrow_marking", "y": 180 }
+    },
+    {
+      "when": { "facing": "west" },
+      "apply": { "model": "streetscape:block/yellow_arrow_marking", "y": 270 }
+    },
+    {
+      "when": { "facing": "north", "connected": "true" },
+      "apply": { "model": "streetscape:block/yellow_side_line_overlay", "y": 180 }
+    },
+    {
+      "when": { "facing": "east", "connected": "true" },
+      "apply": { "model": "streetscape:block/yellow_side_line_overlay", "y": 270 }
+    },
+    {
+      "when": { "facing": "south", "connected": "true" },
+      "apply": { "model": "streetscape:block/yellow_side_line_overlay", "y": 0 }
+    },
+    {
+      "when": { "facing": "west", "connected": "true" },
+      "apply": { "model": "streetscape:block/yellow_side_line_overlay", "y": 90 }
+    }
+  ]
 }

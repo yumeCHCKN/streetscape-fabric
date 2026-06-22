@@ -1,0 +1,15 @@
+{
+  "parent": "minecraft:block/block",
+  "textures": {
+    "overlay": "streetscape:block/yellow_single_line_side_marking"
+  },
+  "elements": [
+    {
+      "from": [-0.005, 0, -0.005],
+      "to": [16.005, 16, 16.005],
+      "faces": {
+        "north": { "uv": [0, 0, 16, 16], "texture": "#overlay" }
+      }
+    }
+  ]
+}

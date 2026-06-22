@@ -1,55 +1,80 @@
 {
   "multipart": [
     {
-      "apply": {
-        "model": "streetscape:block/asphalt_base"
-      }
+      "apply": { "model": "streetscape:block/asphalt_base" }
     },
     {
       "when": {
-        "north": "false",
-        "east": "false",
-        "south": "false",
-        "west": "false"
+        "north": "none",
+        "east": "none",
+        "south": "none",
+        "west": "none"
       },
-      "apply": {
-        "model": "streetscape:block/yellow_dot_overlay"
-      }
+      "apply": { "model": "streetscape:block/yellow_dot_overlay" }
     },
     {
-      "when": {
-        "north": "true"
-      },
-      "apply": {
-        "model": "streetscape:block/yellow_line_overlay"
-      }
+      "when": { "north": "flat" },
+      "apply": { "model": "streetscape:block/yellow_line_overlay" }
     },
     {
-      "when": {
-        "east": "true"
-      },
-      "apply": {
-        "model": "streetscape:block/yellow_line_overlay",
-        "y": 90
-      }
+      "when": { "north": "up" },
+      "apply": { "model": "streetscape:block/yellow_line_overlay" }
     },
     {
-      "when": {
-        "south": "true"
-      },
-      "apply": {
-        "model": "streetscape:block/yellow_line_overlay",
-        "y": 180
-      }
+      "when": { "north": "down" },
+      "apply": { "model": "streetscape:block/yellow_line_overlay" }
     },
     {
-      "when": {
-        "west": "true"
-      },
-      "apply": {
-        "model": "streetscape:block/yellow_line_overlay",
-        "y": 270
-      }
+      "when": { "north": "down" },
+      "apply": { "model": "streetscape:block/yellow_side_line_overlay" }
+    },
+    {
+      "when": { "east": "flat" },
+      "apply": { "model": "streetscape:block/yellow_line_overlay", "y": 90 }
+    },
+    {
+      "when": { "east": "up" },
+      "apply": { "model": "streetscape:block/yellow_line_overlay", "y": 90 }
+    },
+    {
+      "when": { "east": "down" },
+      "apply": { "model": "streetscape:block/yellow_line_overlay", "y": 90 }
+    },
+    {
+      "when": { "east": "down" },
+      "apply": { "model": "streetscape:block/yellow_side_line_overlay", "y": 90 }
+    },
+    {
+      "when": { "south": "flat" },
+      "apply": { "model": "streetscape:block/yellow_line_overlay", "y": 180 }
+    },
+    {
+      "when": { "south": "up" },
+      "apply": { "model": "streetscape:block/yellow_line_overlay", "y": 180 }
+    },
+    {
+      "when": { "south": "down" },
+      "apply": { "model": "streetscape:block/yellow_line_overlay", "y": 180 }
+    },
+    {
+      "when": { "south": "down" },
+      "apply": { "model": "streetscape:block/yellow_side_line_overlay", "y": 180 }
+    },
+    {
+      "when": { "west": "flat" },
+      "apply": { "model": "streetscape:block/yellow_line_overlay", "y": 270 }
+    },
+    {
+      "when": { "west": "up" },
+      "apply": { "model": "streetscape:block/yellow_line_overlay", "y": 270 }
+    },
+    {
+      "when": { "west": "down" },
+      "apply": { "model": "streetscape:block/yellow_line_overlay", "y": 270 }
+    },
+    {
+      "when": { "west": "down" },
+      "apply": { "model": "streetscape:block/yellow_side_line_overlay", "y": 270 }
     }
   ]
 }
