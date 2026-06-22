@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "streetscape:block/white_diagonal_stripe_marking"
+  }
+}

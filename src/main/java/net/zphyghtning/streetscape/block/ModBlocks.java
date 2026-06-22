@@ -1,0 +1,55 @@
+package net.zphyghtning.streetscape.block;
+
+import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
+import net.minecraft.block.Blocks;
+import net.minecraft.item.BlockItem;
+import net.minecraft.item.Item;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
+import net.minecraft.util.Identifier;
+import net.zphyghtning.streetscape.Streetscape;
+
+public class ModBlocks {
+
+    public static final Block WHITE_DIAGONAL_STRIPE_MARKING = registerBlock("white_diagonal_stripe_marking",
+            new Block(AbstractBlock.Settings.copy(Blocks.WHITE_CONCRETE)));
+
+    public static final Block YELLOW_DIAGONAL_STRIPE_MARKING = registerBlock("yellow_diagonal_stripe_marking",
+            new Block(AbstractBlock.Settings.copy(Blocks.YELLOW_CONCRETE)));
+
+    public static final Block WHITE_ARROW_MARKING = registerBlock("white_arrow_marking",
+            new ArrowMarkingBlock(AbstractBlock.Settings.copy(Blocks.WHITE_CONCRETE)));
+
+    public static final Block YELLOW_ARROW_MARKING = registerBlock("yellow_arrow_marking",
+            new ArrowMarkingBlock(AbstractBlock.Settings.copy(Blocks.YELLOW_CONCRETE)));
+
+    public static final Block WHITE_SINGLE_LINE_MARKING = registerBlock("white_single_line_marking",
+            new LineMarkingBlock(AbstractBlock.Settings.copy(Blocks.WHITE_CONCRETE)));
+
+    public static final Block YELLOW_SINGLE_LINE_MARKING = registerBlock("yellow_single_line_marking",
+            new LineMarkingBlock(AbstractBlock.Settings.copy(Blocks.YELLOW_CONCRETE)));
+
+    public static final Block ASPHALT = registerBlock("asphalt",
+            new Block(AbstractBlock.Settings.copy(Blocks.BLACK_CONCRETE)));
+
+    public static final Block ROADWORKS_TABLE = registerBlock("roadworks_table",
+            new RoadworksTableBlock(AbstractBlock.Settings.copy(Blocks.STONE)));
+
+    public static final Block ASPHALT_MIX = registerBlock("asphalt_mix",
+            new Block(AbstractBlock.Settings.copy(Blocks.MUD)));
+
+    private static Block registerBlock(String name, Block block) {
+        registerBlockItem(name, block);
+        return Registry.register(Registries.BLOCK, Identifier.of(Streetscape.MOD_ID, name), block);
+    }
+
+    private static void registerBlockItem(String name, Block block) {
+        Registry.register(Registries.ITEM, Identifier.of(Streetscape.MOD_ID, name),
+                new BlockItem(block, new Item.Settings()));
+    }
+
+    public static void registerModBlocks() {
+        Streetscape.LOGGER.info("Registering Mod Blocks for " + Streetscape.MOD_ID);
+    }
+}

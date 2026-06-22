@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "streetscape:block/roadworks_table_top",
+    "front": "streetscape:block/roadworks_table_front",
+    "side": "streetscape:block/roadworks_table_side"
+  }
+}

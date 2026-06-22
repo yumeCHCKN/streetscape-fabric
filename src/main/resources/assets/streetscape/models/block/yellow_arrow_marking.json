@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "particle": "streetscape:block/asphalt",
+    "down": "streetscape:block/asphalt",
+    "up": "streetscape:block/yellow_arrow_marking",
+    "north": "streetscape:block/asphalt",
+    "east": "streetscape:block/asphalt",
+    "south": "streetscape:block/asphalt",
+    "west": "streetscape:block/asphalt"
+  }
+}

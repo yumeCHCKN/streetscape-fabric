@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "streetscape:block/roadworks_table"
+    },
+    "facing=east": {
+      "model": "streetscape:block/roadworks_table",
+      "y": 90
+    },
+    "facing=south": {
+      "model": "streetscape:block/roadworks_table",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "streetscape:block/roadworks_table",
+      "y": 270
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+    "type": "minecraft:blasting",
+    "category": "blocks",
+    "experience": 0,
+    "cookingtime": 100,
+    "ingredient": {
+        "item": "streetscape:asphalt_mix"
+    },
+    "result": {
+        "id": "streetscape:asphalt"
+    }
+}

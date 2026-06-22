@@ -1,0 +1,13 @@
+{
+  "replace": false,
+  "values": [
+    "streetscape:white_diagonal_stripe_marking",
+    "streetscape:yellow_diagonal_stripe_marking",
+    "streetscape:white_arrow_marking",
+    "streetscape:yellow_arrow_marking",
+    "streetscape:white_single_line_marking",
+    "streetscape:yellow_single_line_marking",
+    "streetscape:asphalt",
+    "streetscape:roadworks_table"
+  ]
+}
