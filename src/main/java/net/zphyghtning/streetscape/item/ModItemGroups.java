@@ -27,6 +27,9 @@ public class ModItemGroups {
                         entries.add(ModBlocks.YELLOW_ARROW_MARKING);
                         entries.add(ModBlocks.WHITE_SINGLE_LINE_MARKING);
                         entries.add(ModBlocks.YELLOW_SINGLE_LINE_MARKING);
+                        entries.add(ModBlocks.TRAFFIC_CONE);
+                        entries.add(ModBlocks.LARGE_TRAFFIC_CONE);
+                        entries.add(ModBlocks.TALL_TRAFFIC_CONE);
                     })
                     .build());
 

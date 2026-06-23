@@ -1,0 +1,50 @@
+{
+	"format_version": "1.21.11",
+	"credit": "Made by Z-Phyghtning",
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "streetscape:block/traffic_cone",
+		"particle": "streetscape:block/traffic_cone"
+	},
+	"elements": [
+		{
+			"from": [6, 9, 6],
+			"to": [10, 16, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 8, 7]},
+			"faces": {
+				"north": {"uv": [5, 8.5, 7, 12], "texture": "#0"},
+				"east": {"uv": [5, 8.5, 7, 12], "texture": "#0"},
+				"south": {"uv": [5, 8.5, 7, 12], "texture": "#0"},
+				"west": {"uv": [5, 8.5, 7, 12], "texture": "#0"},
+				"up": {"uv": [5, 6.5, 7, 8.5], "texture": "#0"},
+				"down": {"uv": [5.5, 0.5, 7.5, 2.5], "texture": "#0"}
+			}
+		},
+		{
+			"from": [5, 2, 5],
+			"to": [11, 9, 11],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 3, 7]},
+			"faces": {
+				"north": {"uv": [5, 3, 8, 6.5], "texture": "#0"},
+				"east": {"uv": [5, 3, 8, 6.5], "texture": "#0"},
+				"south": {"uv": [5, 3, 8, 6.5], "texture": "#0"},
+				"west": {"uv": [5, 3, 8, 6.5], "texture": "#0"},
+				"up": {"uv": [5, 0, 8, 3], "texture": "#0"},
+				"down": {"uv": [5, 0, 8, 3], "texture": "#0"}
+			}
+		},
+		{
+			"from": [3, 0, 3],
+			"to": [13, 2, 13],
+			"rotation": {"angle": 0, "axis": "y", "origin": [7, 0, 7]},
+			"faces": {
+				"north": {"uv": [0, 5, 5, 6], "texture": "#0"},
+				"east": {"uv": [0, 5, 5, 6], "texture": "#0"},
+				"south": {"uv": [0, 5, 5, 6], "texture": "#0"},
+				"west": {"uv": [0, 5, 5, 6], "texture": "#0"},
+				"up": {"uv": [5, 11, 0, 6], "texture": "#0"},
+				"down": {"uv": [5, 0, 0, 5], "texture": "#0"}
+			}
+		}
+	]
+}

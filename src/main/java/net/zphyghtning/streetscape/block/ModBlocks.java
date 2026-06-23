@@ -7,6 +7,7 @@ import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.zphyghtning.streetscape.Streetscape;
 
@@ -38,6 +39,26 @@ public class ModBlocks {
 
     public static final Block ASPHALT_MIX = registerBlock("asphalt_mix",
             new Block(AbstractBlock.Settings.copy(Blocks.MUD)));
+
+    public static final Block TRAFFIC_CONE = registerBlock("traffic_cone",
+            new SmallTrafficConeBlock(AbstractBlock.Settings.copy(Blocks.ORANGE_CONCRETE)
+                    .nonOpaque()
+                    .sounds(BlockSoundGroup.SCAFFOLDING)
+            ));
+
+    public static final Block LARGE_TRAFFIC_CONE = registerBlock("large_traffic_cone",
+            new DoubleTrafficConeBlock(AbstractBlock.Settings.copy(Blocks.ORANGE_CONCRETE)
+                    .nonOpaque()
+                    .sounds(BlockSoundGroup.SCAFFOLDING),
+                    DoubleTrafficConeBlock.Type.LARGE
+            ));
+
+    public static final Block TALL_TRAFFIC_CONE = registerBlock("tall_traffic_cone",
+            new DoubleTrafficConeBlock(AbstractBlock.Settings.copy(Blocks.ORANGE_CONCRETE)
+                    .nonOpaque()
+                    .sounds(BlockSoundGroup.SCAFFOLDING),
+                    DoubleTrafficConeBlock.Type.TALL
+            ));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

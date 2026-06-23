@@ -1,0 +1,6 @@
+{
+  "variants": {
+    "half=lower": { "model": "streetscape:block/large_traffic_cone" },
+    "half=upper": { "model": "streetscape:block/large_traffic_cone_upper" }
+  }
+}

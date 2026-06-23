@@ -9,5 +9,8 @@
   "block.streetscape.asphalt": "Asphalt",
   "block.streetscape.roadworks_table": "Roadworks Table",
   "container.roadworks_table": "Roadworks Table",
-  "block.streetscape.asphalt_mix": "Asphalt Mix"
+  "block.streetscape.asphalt_mix": "Asphalt Mix",
+  "block.streetscape.traffic_cone": "Traffic Cone",
+  "block.streetscape.large_traffic_cone": "Large Traffic Cone",
+  "block.streetscape.tall_traffic_cone": "Tall Traffic Cone"
 }

@@ -15,6 +15,9 @@ public class StreetscapeClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.YELLOW_ARROW_MARKING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WHITE_SINGLE_LINE_MARKING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.YELLOW_SINGLE_LINE_MARKING, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TRAFFIC_CONE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.LARGE_TRAFFIC_CONE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.TALL_TRAFFIC_CONE, RenderLayer.getCutout());
 
         HandledScreens.register(ModScreenHandlers.ROADWORKS_SCREEN_HANDLER, RoadworksScreen::new);
     }
