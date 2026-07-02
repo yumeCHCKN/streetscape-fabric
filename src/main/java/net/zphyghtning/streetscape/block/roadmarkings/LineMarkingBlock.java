@@ -1,4 +1,4 @@
-package net.zphyghtning.streetscape.block;
+package net.zphyghtning.streetscape.block.roadmarkings;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.Block;
@@ -128,7 +128,7 @@ public class LineMarkingBlock extends Block {
         }
     }
 
-    void updateBlockState(World world, BlockPos pos) {
+    public void updateBlockState(World world, BlockPos pos) {
         BlockState state = world.getBlockState(pos);
         if (state.getBlock() instanceof LineMarkingBlock) {
             BlockState updatedState = state;

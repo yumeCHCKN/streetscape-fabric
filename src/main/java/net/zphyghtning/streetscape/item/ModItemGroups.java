@@ -30,6 +30,9 @@ public class ModItemGroups {
                         entries.add(ModBlocks.TRAFFIC_CONE);
                         entries.add(ModBlocks.LARGE_TRAFFIC_CONE);
                         entries.add(ModBlocks.TALL_TRAFFIC_CONE);
+                        entries.add(ModBlocks.SIGN_POLE);
+                        entries.add(ModBlocks.RED_OCTAGON_SIGN);
+                        entries.add(ModBlocks.GARBAGE_CAN);
                     })
                     .build());
 

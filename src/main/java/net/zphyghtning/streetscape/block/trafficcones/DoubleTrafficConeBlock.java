@@ -1,4 +1,4 @@
-package net.zphyghtning.streetscape.block;
+package net.zphyghtning.streetscape.block.trafficcones;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
@@ -19,7 +19,7 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
-import net.minecraft.world.WorldEvents;
+import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
 public class DoubleTrafficConeBlock extends Block {
@@ -43,7 +43,7 @@ public class DoubleTrafficConeBlock extends Block {
             Block.createCuboidShape(4.0, 0.0, 4.0, 12.0, 3.0, 12.0),
             Block.createCuboidShape(6.0, 3.0, 6.0, 10.0, 16.0, 10.0)
     );
-    private static final VoxelShape TALL_UPPER_SHAPE = Block.createCuboidShape(6.0, 0.0, 6.0, 10.0, 11.0, 10.0);
+    private static final VoxelShape TALL_UPPER_SHAPE = Block.createCuboidShape(6.0, 0.0, 6.0, 10.0, 10.0, 10.0);
 
     public DoubleTrafficConeBlock(Settings settings, Type type) {
         super(settings);
@@ -69,6 +69,9 @@ public class DoubleTrafficConeBlock extends Block {
     @Override
     @Nullable
     public BlockState getPlacementState(ItemPlacementContext ctx) {
+        if (ctx.getSide() != Direction.UP) {
+            return null;
+        }
         BlockPos pos = ctx.getBlockPos();
         World world = ctx.getWorld();
         if (pos.getY() < world.getTopY() - 1 && world.getBlockState(pos.up()).canReplace(ctx)) {
@@ -83,8 +86,25 @@ public class DoubleTrafficConeBlock extends Block {
     }
 
     @Override
+    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
+        DoubleBlockHalf half = state.get(HALF);
+        if (half == DoubleBlockHalf.UPPER) {
+            BlockState lowerState = world.getBlockState(pos.down());
+            return lowerState.isOf(this) && lowerState.get(HALF) == DoubleBlockHalf.LOWER;
+        }
+        BlockPos downPos = pos.down();
+        BlockState downState = world.getBlockState(downPos);
+        return downState.isSideSolidFullSquare(world, downPos, Direction.UP);
+    }
+
+    @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
         DoubleBlockHalf half = state.get(HALF);
+
+        if (half == DoubleBlockHalf.LOWER && direction == Direction.DOWN && !state.canPlaceAt(world, pos)) {
+            return Blocks.AIR.getDefaultState();
+        }
+
         if (direction.getAxis() == Direction.Axis.Y) {
             if (half == DoubleBlockHalf.LOWER && direction == Direction.UP) {
                 if (!neighborState.isOf(this) || neighborState.get(HALF) != DoubleBlockHalf.UPPER) {
@@ -102,12 +122,8 @@ public class DoubleTrafficConeBlock extends Block {
 
     @Override
     public BlockState onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
-        if (!world.isClient) {
-            if (player.isCreative()) {
-                onBreakInCreative(world, pos, state, player);
-            } else {
-                super.onBreak(world, pos, state, player);
-            }
+        if (!world.isClient && player.isCreative()) {
+            onBreakInCreative(world, pos, state, player);
         }
         return super.onBreak(world, pos, state, player);
     }
@@ -115,11 +131,11 @@ public class DoubleTrafficConeBlock extends Block {
     protected static void onBreakInCreative(World world, BlockPos pos, BlockState state, PlayerEntity player) {
         DoubleBlockHalf half = state.get(HALF);
         if (half == DoubleBlockHalf.UPPER) {
-            BlockPos blockPos = pos.down();
-            BlockState blockState = world.getBlockState(blockPos);
-            if (blockState.isOf(state.getBlock()) && blockState.get(HALF) == DoubleBlockHalf.LOWER) {
-                world.setBlockState(blockPos, Blocks.AIR.getDefaultState(), Block.NOTIFY_ALL | Block.SKIP_DROPS);
-                world.syncWorldEvent(player, WorldEvents.BLOCK_BROKEN, blockPos, Block.getRawIdFromState(blockState));
+            BlockPos downPos = pos.down();
+            BlockState downState = world.getBlockState(downPos);
+            if (downState.isOf(state.getBlock()) && downState.get(HALF) == DoubleBlockHalf.LOWER) {
+                world.setBlockState(downPos, Blocks.AIR.getDefaultState(), 35);
+                world.syncWorldEvent(player, 2001, downPos, Block.getRawIdFromState(downState));
             }
         }
     }

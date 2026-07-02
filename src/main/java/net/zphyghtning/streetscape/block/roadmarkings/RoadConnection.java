@@ -1,4 +1,4 @@
-package net.zphyghtning.streetscape.block;
+package net.zphyghtning.streetscape.block.roadmarkings;
 
 import net.minecraft.util.StringIdentifiable;
 

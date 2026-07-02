@@ -10,6 +10,12 @@ import net.minecraft.registry.Registry;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.zphyghtning.streetscape.Streetscape;
+import net.zphyghtning.streetscape.block.roadmarkings.ArrowMarkingBlock;
+import net.zphyghtning.streetscape.block.roadmarkings.LineMarkingBlock;
+import net.zphyghtning.streetscape.block.trafficcones.DoubleTrafficConeBlock;
+import net.zphyghtning.streetscape.block.trafficcones.SmallTrafficConeBlock;
+import net.zphyghtning.streetscape.block.roadsigns.RoadSignBlock;
+import net.zphyghtning.streetscape.block.roadsigns.SignPoleBlock;
 
 public class ModBlocks {
 
@@ -41,24 +47,36 @@ public class ModBlocks {
             new Block(AbstractBlock.Settings.copy(Blocks.MUD)));
 
     public static final Block TRAFFIC_CONE = registerBlock("traffic_cone",
-            new SmallTrafficConeBlock(AbstractBlock.Settings.copy(Blocks.ORANGE_CONCRETE)
+            new SmallTrafficConeBlock(AbstractBlock.Settings.create()
                     .nonOpaque()
+                    .breakInstantly()
                     .sounds(BlockSoundGroup.SCAFFOLDING)
             ));
 
     public static final Block LARGE_TRAFFIC_CONE = registerBlock("large_traffic_cone",
-            new DoubleTrafficConeBlock(AbstractBlock.Settings.copy(Blocks.ORANGE_CONCRETE)
+            new DoubleTrafficConeBlock(AbstractBlock.Settings.create()
                     .nonOpaque()
+                    .breakInstantly()
                     .sounds(BlockSoundGroup.SCAFFOLDING),
                     DoubleTrafficConeBlock.Type.LARGE
             ));
 
     public static final Block TALL_TRAFFIC_CONE = registerBlock("tall_traffic_cone",
-            new DoubleTrafficConeBlock(AbstractBlock.Settings.copy(Blocks.ORANGE_CONCRETE)
+            new DoubleTrafficConeBlock(AbstractBlock.Settings.create()
                     .nonOpaque()
-                    .sounds(BlockSoundGroup.SCAFFOLDING),
+                    .breakInstantly()
+                    .sounds(net.minecraft.sound.BlockSoundGroup.SCAFFOLDING),
                     DoubleTrafficConeBlock.Type.TALL
             ));
+
+    public static final Block SIGN_POLE = registerBlock("sign_pole",
+            new SignPoleBlock(AbstractBlock.Settings.copy(Blocks.IRON_BARS).nonOpaque()));
+
+    public static final Block RED_OCTAGON_SIGN = registerBlock("red_octagon_sign",
+            new RoadSignBlock(AbstractBlock.Settings.copy(Blocks.IRON_BARS).nonOpaque()));
+
+    public static final Block GARBAGE_CAN = registerBlock("garbage_can",
+            new GarbageCanBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).nonOpaque()));
 
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);

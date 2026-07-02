@@ -1,4 +1,4 @@
-package net.zphyghtning.streetscape.block;
+package net.zphyghtning.streetscape.block.roadmarkings;
 
 import com.mojang.serialization.MapCodec;
 import net.minecraft.block.Block;
