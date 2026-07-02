@@ -1,0 +1,12 @@
+{
+  "variants": {
+    "facing=north,half=lower": { "model": "streetscape:block/garbage_can_lower" },
+    "facing=east,half=lower": { "model": "streetscape:block/garbage_can_lower", "y": 90 },
+    "facing=south,half=lower": { "model": "streetscape:block/garbage_can_lower", "y": 180 },
+    "facing=west,half=lower": { "model": "streetscape:block/garbage_can_lower", "y": 270 },
+    "facing=north,half=upper": { "model": "streetscape:block/garbage_can_upper" },
+    "facing=east,half=upper": { "model": "streetscape:block/garbage_can_upper", "y": 90 },
+    "facing=south,half=upper": { "model": "streetscape:block/garbage_can_upper", "y": 180 },
+    "facing=west,half=upper": { "model": "streetscape:block/garbage_can_upper", "y": 270 }
+  }
+}

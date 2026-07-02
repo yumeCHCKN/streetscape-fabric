@@ -8,6 +8,7 @@
     "streetscape:white_single_line_marking",
     "streetscape:yellow_single_line_marking",
     "streetscape:asphalt",
-    "streetscape:roadworks_table"
+    "streetscape:roadworks_table",
+    "streetscape:garbage_can"
   ]
 }

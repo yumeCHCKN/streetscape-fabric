@@ -1,5 +1,5 @@
 {
-	"format_version": "1.21.11",
+	"format_version": "1.9.0",
 	"credit": "Made by Z-Phyghtning",
 	"texture_size": [32, 32],
 	"textures": {
@@ -46,5 +46,11 @@
 				"down": {"uv": [5, 0, 0, 5], "texture": "#0"}
 			}
 		}
-	]
+	],
+	"display": {
+		"head": {
+			"translation": [0, 19.25, 0],
+			"scale": [1.6, 1.6, 1.6]
+		}
+	}
 }

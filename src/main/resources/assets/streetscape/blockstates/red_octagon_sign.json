@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "streetscape:block/road_signs/red_octagon_sign" },
+    "facing=east": { "model": "streetscape:block/road_signs/red_octagon_sign", "y": 90 },
+    "facing=south": { "model": "streetscape:block/road_signs/red_octagon_sign", "y": 180 },
+    "facing=west": { "model": "streetscape:block/road_signs/red_octagon_sign", "y": 270 }
+  }
+}
