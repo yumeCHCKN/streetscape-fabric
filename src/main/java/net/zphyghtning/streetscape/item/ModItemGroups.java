@@ -31,8 +31,17 @@ public class ModItemGroups {
                         entries.add(ModBlocks.LARGE_TRAFFIC_CONE);
                         entries.add(ModBlocks.TALL_TRAFFIC_CONE);
                         entries.add(ModBlocks.SIGN_POLE);
-                        entries.add(ModBlocks.RED_OCTAGON_SIGN);
                         entries.add(ModBlocks.GARBAGE_CAN);
+                    })
+                    .build());
+
+    public static final ItemGroup STREETSCAPE_SIGNS_GROUP = Registry.register(Registries.ITEM_GROUP,
+            Identifier.of(Streetscape.MOD_ID, "streetscape_signs"),
+            FabricItemGroup.builder()
+                    .icon(() -> new ItemStack(ModBlocks.RED_OCTAGON_SIGN))
+                    .displayName(Text.translatable("itemGroup.streetscape.streetscape_signs"))
+                    .entries((displayContext, entries) -> {
+                        entries.add(ModBlocks.RED_OCTAGON_SIGN);
                     })
                     .build());
 
