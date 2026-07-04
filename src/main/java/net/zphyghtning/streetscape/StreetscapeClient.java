@@ -8,9 +8,18 @@ import net.zphyghtning.streetscape.block.ModBlocks;
 import net.zphyghtning.streetscape.screen.ModScreenHandlers;
 import net.zphyghtning.streetscape.client.gui.screen.ingame.RoadworksScreen;
 
+import net.zphyghtning.streetscape.block.entity.ModBlockEntities;
+import net.zphyghtning.streetscape.client.RoadSignAttachedBlockEntityRenderer;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
+
+import net.zphyghtning.streetscape.client.StreetscapeModelLoadingPlugin;
+import net.fabricmc.fabric.api.client.model.loading.v1.ModelLoadingPlugin;
+
 public class StreetscapeClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
+        ModelLoadingPlugin.register(new StreetscapeModelLoadingPlugin());
+
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WHITE_ARROW_MARKING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.YELLOW_ARROW_MARKING, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.WHITE_SINGLE_LINE_MARKING, RenderLayer.getCutout());
@@ -23,6 +32,8 @@ public class StreetscapeClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GARBAGE_CAN, RenderLayer.getCutout());
 
         HandledScreens.register(ModScreenHandlers.ROADWORKS_SCREEN_HANDLER, RoadworksScreen::new);
+
+        BlockEntityRendererRegistry.register(ModBlockEntities.ROAD_SIGN_ATTACHED_BE, RoadSignAttachedBlockEntityRenderer::new);
 
         net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer.register((matrices, vertexConsumers, stack, entity, slot, light, contextModel) -> {
             matrices.push();

@@ -16,6 +16,8 @@ import net.zphyghtning.streetscape.block.trafficcones.DoubleTrafficConeBlock;
 import net.zphyghtning.streetscape.block.trafficcones.SmallTrafficConeBlock;
 import net.zphyghtning.streetscape.block.roadsigns.RoadSignBlock;
 import net.zphyghtning.streetscape.block.roadsigns.SignPoleBlock;
+import net.zphyghtning.streetscape.block.roadsigns.AttachedRoadSignBlock;
+import net.zphyghtning.streetscape.item.RoadSignBlockItem;
 
 public class ModBlocks {
 
@@ -78,14 +80,23 @@ public class ModBlocks {
     public static final Block GARBAGE_CAN = registerBlock("garbage_can",
             new GarbageCanBlock(AbstractBlock.Settings.copy(Blocks.OAK_PLANKS).nonOpaque()));
 
+    public static final Block ATTACHED_ROAD_SIGN = Registry.register(Registries.BLOCK,
+            Identifier.of(Streetscape.MOD_ID, "attached_road_sign"),
+            new AttachedRoadSignBlock(AbstractBlock.Settings.copy(Blocks.IRON_BARS).nonOpaque()));
+
     private static Block registerBlock(String name, Block block) {
         registerBlockItem(name, block);
         return Registry.register(Registries.BLOCK, Identifier.of(Streetscape.MOD_ID, name), block);
     }
 
     private static void registerBlockItem(String name, Block block) {
-        Registry.register(Registries.ITEM, Identifier.of(Streetscape.MOD_ID, name),
-                new BlockItem(block, new Item.Settings()));
+        Item item;
+        if (block instanceof RoadSignBlock) {
+            item = new RoadSignBlockItem(block, new Item.Settings());
+        } else {
+            item = new BlockItem(block, new Item.Settings());
+        }
+        Registry.register(Registries.ITEM, Identifier.of(Streetscape.MOD_ID, name), item);
     }
 
     public static void registerModBlocks() {
