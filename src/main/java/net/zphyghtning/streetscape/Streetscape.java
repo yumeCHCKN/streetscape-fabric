@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 import net.zphyghtning.streetscape.block.ModBlocks;
 import net.zphyghtning.streetscape.item.ModItemGroups;
 
+import net.zphyghtning.streetscape.block.entity.ModBlockEntities;
 import net.zphyghtning.streetscape.screen.ModScreenHandlers;
 
 import org.slf4j.Logger;
@@ -18,5 +19,6 @@ public class Streetscape implements ModInitializer {
 		ModScreenHandlers.registerScreenHandlers();
 		ModItemGroups.registerItemGroups();
 		ModBlocks.registerModBlocks();
+		ModBlockEntities.registerBlockEntities();
 	}
 }
