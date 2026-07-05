@@ -21,6 +21,15 @@ public class RoadSignAttachedBlockEntity extends BlockEntity implements IBlockHo
     private BlockState baseBlockState = Blocks.AIR.getDefaultState();
     private BlockState signBlockState = Blocks.AIR.getDefaultState();
     private int rotation = 0;
+    private boolean creativeBroken = false;
+
+    public boolean isCreativeBroken() {
+        return this.creativeBroken;
+    }
+
+    public void setCreativeBroken(boolean creativeBroken) {
+        this.creativeBroken = creativeBroken;
+    }
 
     public RoadSignAttachedBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.ROAD_SIGN_ATTACHED_BE, pos, state);

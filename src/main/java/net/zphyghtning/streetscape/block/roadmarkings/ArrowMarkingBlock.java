@@ -30,7 +30,7 @@ public class ArrowMarkingBlock extends DirectionalMarkingBlock {
         Direction back = facing.getOpposite();
         BlockPos targetPos = pos.offset(back).down();
         BlockState targetState = world.getBlockState(targetPos);
-        return targetState.getBlock() instanceof LineMarkingBlock;
+        return targetState.getBlock() instanceof SingleLineMarkingBlock && !(targetState.getBlock() instanceof DoubleLineMarkingBlock);
     }
 
     @Override
@@ -70,8 +70,8 @@ public class ArrowMarkingBlock extends DirectionalMarkingBlock {
 
     private void updateLineBlock(World world, BlockPos pos) {
         BlockState state = world.getBlockState(pos);
-        if (state.getBlock() instanceof LineMarkingBlock) {
-            ((LineMarkingBlock) state.getBlock()).updateBlockState(world, pos);
+        if (state.getBlock() instanceof SingleLineMarkingBlock && !(state.getBlock() instanceof DoubleLineMarkingBlock)) {
+            ((SingleLineMarkingBlock) state.getBlock()).updateBlockState(world, pos);
         }
     }
 

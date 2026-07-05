@@ -11,8 +11,8 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 
-public class LineMarkingBlock extends Block {
-    public static final MapCodec<LineMarkingBlock> CODEC = createCodec(LineMarkingBlock::new);
+public class SingleLineMarkingBlock extends Block {
+    public static final MapCodec<SingleLineMarkingBlock> CODEC = createCodec(SingleLineMarkingBlock::new);
 
     public static final EnumProperty<RoadConnection> NORTH = EnumProperty.of("north", RoadConnection.class);
     public static final EnumProperty<RoadConnection> EAST = EnumProperty.of("east", RoadConnection.class);
@@ -20,11 +20,11 @@ public class LineMarkingBlock extends Block {
     public static final EnumProperty<RoadConnection> WEST = EnumProperty.of("west", RoadConnection.class);
 
     @Override
-    public MapCodec<? extends LineMarkingBlock> getCodec() {
+    public MapCodec<? extends SingleLineMarkingBlock> getCodec() {
         return CODEC;
     }
 
-    public LineMarkingBlock(Settings settings) {
+    public SingleLineMarkingBlock(Settings settings) {
         super(settings);
         this.setDefaultState(this.stateManager.getDefaultState()
                 .with(NORTH, RoadConnection.NONE)
@@ -33,9 +33,9 @@ public class LineMarkingBlock extends Block {
                 .with(WEST, RoadConnection.NONE));
     }
 
-    private boolean shouldConnectTo(BlockState neighborState, Direction direction) {
+    protected boolean shouldConnectTo(BlockState neighborState, Direction direction) {
         Block block = neighborState.getBlock();
-        if (block instanceof LineMarkingBlock) {
+        if (block instanceof SingleLineMarkingBlock && !(block instanceof DoubleLineMarkingBlock)) {
             return true;
         }
         if (block instanceof ArrowMarkingBlock) {
@@ -46,7 +46,7 @@ public class LineMarkingBlock extends Block {
         return false;
     }
 
-    private RoadConnection getConnection(WorldAccess world, BlockPos pos, Direction direction) {
+    protected RoadConnection getConnection(WorldAccess world, BlockPos pos, Direction direction) {
         BlockPos neighborPos = pos.offset(direction);
 
         BlockState flatState = world.getBlockState(neighborPos);
@@ -55,7 +55,7 @@ public class LineMarkingBlock extends Block {
         }
 
         BlockState upState = world.getBlockState(neighborPos.up());
-        if (upState.getBlock() instanceof LineMarkingBlock) {
+        if (upState.getBlock() instanceof SingleLineMarkingBlock && !(upState.getBlock() instanceof DoubleLineMarkingBlock)) {
             return RoadConnection.UP;
         }
         if (upState.getBlock() instanceof ArrowMarkingBlock) {
@@ -65,7 +65,7 @@ public class LineMarkingBlock extends Block {
         }
 
         BlockState downState = world.getBlockState(neighborPos.down());
-        if (downState.getBlock() instanceof LineMarkingBlock) {
+        if (downState.getBlock() instanceof SingleLineMarkingBlock && !(downState.getBlock() instanceof DoubleLineMarkingBlock)) {
             return RoadConnection.DOWN;
         }
         if (downState.getBlock() instanceof ArrowMarkingBlock) {
@@ -130,7 +130,7 @@ public class LineMarkingBlock extends Block {
 
     public void updateBlockState(World world, BlockPos pos) {
         BlockState state = world.getBlockState(pos);
-        if (state.getBlock() instanceof LineMarkingBlock) {
+        if (state.getBlock() instanceof SingleLineMarkingBlock && !(state.getBlock() instanceof DoubleLineMarkingBlock)) {
             BlockState updatedState = state;
             for (Direction dir : Direction.Type.HORIZONTAL) {
                 RoadConnection conn = getConnection(world, pos, dir);
@@ -150,7 +150,7 @@ public class LineMarkingBlock extends Block {
             Direction back = facing.getOpposite();
             BlockPos targetPos = pos.offset(back).down();
             BlockState targetState = world.getBlockState(targetPos);
-            boolean connected = targetState.getBlock() instanceof LineMarkingBlock;
+            boolean connected = targetState.getBlock() instanceof SingleLineMarkingBlock && !(targetState.getBlock() instanceof DoubleLineMarkingBlock);
             BlockState updatedState = state.with(ArrowMarkingBlock.CONNECTED, connected);
             if (updatedState != state) {
                 world.setBlockState(pos, updatedState, Block.NOTIFY_LISTENERS);

@@ -2,7 +2,7 @@
   "parent": "minecraft:block/block",
   "textures": {
     "asphalt": "streetscape:block/asphalt",
-    "line": "streetscape:block/white_single_line_side_marking"
+    "line": "streetscape:block/white_double_line_side_marking"
   },
   "elements": [
     {

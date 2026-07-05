@@ -1,0 +1,71 @@
+{
+  "multipart": [
+    {
+      "apply": { "model": "streetscape:block/asphalt_base" }
+    },
+    {
+      "when": { "shape": "none" },
+      "apply": { "model": "streetscape:block/yellow_double_line_dot" }
+    },
+    {
+      "when": { "shape": "north_south" },
+      "apply": { "model": "streetscape:block/yellow_double_line_overlay" }
+    },
+    {
+      "when": { "shape": "east_west" },
+      "apply": { "model": "streetscape:block/yellow_double_line_overlay", "y": 90 }
+    },
+    {
+      "when": { "shape": "north_east" },
+      "apply": { "model": "streetscape:block/yellow_double_line_corner" }
+    },
+    {
+      "when": { "shape": "east_south" },
+      "apply": { "model": "streetscape:block/yellow_double_line_corner", "y": 90 }
+    },
+    {
+      "when": { "shape": "south_west" },
+      "apply": { "model": "streetscape:block/yellow_double_line_corner", "y": 180 }
+    },
+    {
+      "when": { "shape": "west_north" },
+      "apply": { "model": "streetscape:block/yellow_double_line_corner", "y": 270 }
+    },
+    {
+      "when": { "shape": "north_east_south" },
+      "apply": { "model": "streetscape:block/yellow_double_line_t" }
+    },
+    {
+      "when": { "shape": "east_south_west" },
+      "apply": { "model": "streetscape:block/yellow_double_line_t", "y": 90 }
+    },
+    {
+      "when": { "shape": "south_west_north" },
+      "apply": { "model": "streetscape:block/yellow_double_line_t", "y": 180 }
+    },
+    {
+      "when": { "shape": "west_north_east" },
+      "apply": { "model": "streetscape:block/yellow_double_line_t", "y": 270 }
+    },
+    {
+      "when": { "shape": "all" },
+      "apply": { "model": "streetscape:block/yellow_double_line_plus" }
+    },
+    {
+      "when": { "north": "down" },
+      "apply": { "model": "streetscape:block/yellow_double_side_line_overlay" }
+    },
+    {
+      "when": { "east": "down" },
+      "apply": { "model": "streetscape:block/yellow_double_side_line_overlay", "y": 90 }
+    },
+    {
+      "when": { "south": "down" },
+      "apply": { "model": "streetscape:block/yellow_double_side_line_overlay", "y": 180 }
+    },
+    {
+      "when": { "west": "down" },
+      "apply": { "model": "streetscape:block/yellow_double_side_line_overlay", "y": 270 }
+    }
+  ]
+}

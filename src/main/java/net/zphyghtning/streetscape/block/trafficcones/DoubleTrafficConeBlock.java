@@ -43,7 +43,7 @@ public class DoubleTrafficConeBlock extends Block {
             Block.createCuboidShape(4.0, 0.0, 4.0, 12.0, 3.0, 12.0),
             Block.createCuboidShape(6.0, 3.0, 6.0, 10.0, 16.0, 10.0)
     );
-    private static final VoxelShape TALL_UPPER_SHAPE = Block.createCuboidShape(6.0, 0.0, 6.0, 10.0, 10.0, 10.0);
+    private static final VoxelShape TALL_UPPER_SHAPE = Block.createCuboidShape(6.0, 0.0, 6.0, 10.0, 11.0, 10.0);
 
     public DoubleTrafficConeBlock(Settings settings, Type type) {
         super(settings);

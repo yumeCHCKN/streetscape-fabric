@@ -62,17 +62,26 @@ public class AttachedRoadSignBlock extends BlockWithEntity {
     }
 
     @Override
+    public BlockState onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
+        if (!world.isClient && player.isCreative()) {
+            BlockEntity blockEntity = world.getBlockEntity(pos);
+            if (blockEntity instanceof RoadSignAttachedBlockEntity attachedBE) {
+                attachedBE.setCreativeBroken(true);
+            }
+        }
+        return super.onBreak(world, pos, state, player);
+    }
+
+    @Override
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
         if (!state.isOf(newState.getBlock())) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
             if (blockEntity instanceof RoadSignAttachedBlockEntity attachedBE) {
-                BlockState baseState = attachedBE.getBaseBlockState();
-                if (baseState != null && !baseState.isAir()) {
-                    Block.dropStack(world, pos, new ItemStack(baseState.getBlock().asItem()));
-                }
-                BlockState signState = attachedBE.getSignBlockState();
-                if (signState != null && !signState.isAir()) {
-                    Block.dropStack(world, pos, new ItemStack(signState.getBlock().asItem()));
+                if (!attachedBE.isCreativeBroken()) {
+                    BlockState signState = attachedBE.getSignBlockState();
+                    if (signState != null && !signState.isAir()) {
+                        Block.dropStack(world, pos, new ItemStack(signState.getBlock().asItem()));
+                    }
                 }
             }
             super.onStateReplaced(state, world, pos, newState, moved);

@@ -11,7 +11,8 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.zphyghtning.streetscape.Streetscape;
 import net.zphyghtning.streetscape.block.roadmarkings.ArrowMarkingBlock;
-import net.zphyghtning.streetscape.block.roadmarkings.LineMarkingBlock;
+import net.zphyghtning.streetscape.block.roadmarkings.SingleLineMarkingBlock;
+import net.zphyghtning.streetscape.block.roadmarkings.DoubleLineMarkingBlock;
 import net.zphyghtning.streetscape.block.trafficcones.DoubleTrafficConeBlock;
 import net.zphyghtning.streetscape.block.trafficcones.SmallTrafficConeBlock;
 import net.zphyghtning.streetscape.block.roadsigns.RoadSignBlock;
@@ -34,10 +35,16 @@ public class ModBlocks {
             new ArrowMarkingBlock(AbstractBlock.Settings.copy(Blocks.YELLOW_CONCRETE)));
 
     public static final Block WHITE_SINGLE_LINE_MARKING = registerBlock("white_single_line_marking",
-            new LineMarkingBlock(AbstractBlock.Settings.copy(Blocks.WHITE_CONCRETE)));
+            new SingleLineMarkingBlock(AbstractBlock.Settings.copy(Blocks.WHITE_CONCRETE)));
+
+    public static final Block WHITE_DOUBLE_LINE_MARKING = registerBlock("white_double_line_marking",
+            new DoubleLineMarkingBlock(AbstractBlock.Settings.copy(Blocks.WHITE_CONCRETE)));
 
     public static final Block YELLOW_SINGLE_LINE_MARKING = registerBlock("yellow_single_line_marking",
-            new LineMarkingBlock(AbstractBlock.Settings.copy(Blocks.YELLOW_CONCRETE)));
+            new SingleLineMarkingBlock(AbstractBlock.Settings.copy(Blocks.YELLOW_CONCRETE)));
+
+    public static final Block YELLOW_DOUBLE_LINE_MARKING = registerBlock("yellow_double_line_marking",
+            new DoubleLineMarkingBlock(AbstractBlock.Settings.copy(Blocks.YELLOW_CONCRETE)));
 
     public static final Block ASPHALT = registerBlock("asphalt",
             new Block(AbstractBlock.Settings.copy(Blocks.BLACK_CONCRETE)));
@@ -75,6 +82,9 @@ public class ModBlocks {
             new SignPoleBlock(AbstractBlock.Settings.copy(Blocks.IRON_BARS).nonOpaque()));
 
     public static final Block RED_OCTAGON_SIGN = registerBlock("red_octagon_sign",
+            new RoadSignBlock(AbstractBlock.Settings.copy(Blocks.IRON_BARS).nonOpaque()));
+
+    public static final Block BLUE_CIRCLE_SIGN = registerBlock("blue_circle_sign",
             new RoadSignBlock(AbstractBlock.Settings.copy(Blocks.IRON_BARS).nonOpaque()));
 
     public static final Block GARBAGE_CAN = registerBlock("garbage_can",

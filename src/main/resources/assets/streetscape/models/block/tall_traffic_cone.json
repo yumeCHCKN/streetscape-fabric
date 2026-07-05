@@ -4,7 +4,7 @@
 	"texture_size": [32, 32],
 	"textures": {
 		"0": "streetscape:block/tall_traffic_cone",
-		"particle": "streetscape:block/tall_traffic_cone"
+		"particle": "streetscape:block/traffic_cone"
 	},
 	"elements": [
 		{

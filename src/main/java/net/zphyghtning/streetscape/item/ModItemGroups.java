@@ -27,6 +27,8 @@ public class ModItemGroups {
                         entries.add(ModBlocks.YELLOW_ARROW_MARKING);
                         entries.add(ModBlocks.WHITE_SINGLE_LINE_MARKING);
                         entries.add(ModBlocks.YELLOW_SINGLE_LINE_MARKING);
+                        entries.add(ModBlocks.WHITE_DOUBLE_LINE_MARKING);
+                        entries.add(ModBlocks.YELLOW_DOUBLE_LINE_MARKING);
                         entries.add(ModBlocks.TRAFFIC_CONE);
                         entries.add(ModBlocks.LARGE_TRAFFIC_CONE);
                         entries.add(ModBlocks.TALL_TRAFFIC_CONE);
@@ -42,6 +44,7 @@ public class ModItemGroups {
                     .displayName(Text.translatable("itemGroup.streetscape.streetscape_signs"))
                     .entries((displayContext, entries) -> {
                         entries.add(ModBlocks.RED_OCTAGON_SIGN);
+                        entries.add(ModBlocks.BLUE_CIRCLE_SIGN);
                     })
                     .build());
 
